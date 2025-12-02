@@ -1,0 +1,15 @@
+networks:
+  customer-network:
+    driver: bridge
+    name: customer-network
+
+services:
+  customer_frontend:
+    container_name: customer-frontend
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"
+    networks:
+      - customer-network
